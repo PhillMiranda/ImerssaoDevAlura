@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="\Projetos Web\ImersãoDev_ Alura\CSS\style.css">
+    <link rel="icon" type="image/svg+xml" href="/Projetos Web/ImersãoDev_ Alura/Imagens/SVG/FUSCA-CARTOON.svg">
+    <title>A história do Fusca por Phillip Miranda</title>    
+</head>
+
+<body id="background-image">
+    <header>
+        <h1>A história do 
+            <img src="/Projetos Web/ImersãoDev_ Alura/Imagens/SVG/FUSCA-CARTOON.svg" alt="Fusca Cartoon" style="height: 90px; vertical-align: middle;"> 
+            no Brasil
+        </h1>
+    </header>
+    <main>
+        <section>
+            <div class="search-container">
+                <input id="campo-pesquisa" type="text" placeholder="Digite o nome do modelo">
+                <button class="btn-azul" onclick="pesquisar()">Pesquisar</button>
+            </div>
+        </section>
+        <!-- Seletor de Cor -->
+        <div class="color-selector">
+            <label style="font-size: 1.1rem;" for="colorPicker"><strong>Escolha a cor do Fusca:</strong></label>
+            <select id="colorPicker">
+            <!-- Opções de cores para o usuário escolher -->
+                <option value="fusca-bege">Bege</option>
+                <option value="fusca-azul">Azul</option>
+                <option value="fusca-vermelho">Vermelho</option>
+                <option value="fusca-verde">Verde</option>
+                <option value="fusca-branco">Branco</option>
+                <option value="fusca-preto">Preto</option>
+                <option value="fusca-cinza">Cinza</option>
+                <option value="fusca-amarelo">Amarelo</option>
+                <option value="fusca-laranja">Laranja</option>
+                <option value="fusca-roxo">Roxo</option>
+                <option value="fusca-rosa">Rosa</option>
+            </select>
+      </div>
+      <section id="resultados-pesquisa" class="resultados-pesquisa">
+        <!-- Os resultados serão inseridos aqui pelo JavaScript -->
+    </section>
+    </main>
+    <footer>
+        <p id="rodapé">2024 - Imerssão DEV Alura - Gemini. Todos os direitos reservados<br>
+        Entre em contato pelo email: phillipmiranda@outlook.com</p>
+    </footer>
+    <script src="\Projetos Web\ImersãoDev_ Alura\JavaScript\app.js"></script>
+    <script src="\Projetos Web\ImersãoDev_ Alura\JavaScript\dados.js"></script>
+    <script src="\Projetos Web\ImersãoDev_ Alura\JavaScript\exibirResultados.js"></script>
+</body>
+</html>

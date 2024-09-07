@@ -1,0 +1,303 @@
+/* Importa a fonte Chakra Petch do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+/* Guia de Cores */
+
+/* Cores Principais */
+:root {
+  --primary-color: #30475E; /* Azul escuro */
+  --secondary-color: #F5F7F8; /* Cinza claro */
+  --text-color: #45474B; /* Cor padrão do texto */
+
+  /* Cores de Destaque */
+  --accent-color: #FF6384; /* Vermelho vibrante */
+  --success-color: #4CAF50; /* Verde claro */
+  --warning-color: #FFEB3B; /* Amarelo */
+  --error-color: #F44336; /* Vermelho */
+
+  /* Cores primárias dos Fuscas */
+  --fusca-vermelho: #D42F2F; /* Vermelho cereja */
+  --fusca-azul: #006699; /* Azul petróleo */
+  --fusca-bege: #F5F5DC; /* Bege claro */
+  --fusca-verde: #00534f; /* Verde prússia */
+  --fusca-branco: #FFFFFF; /* Branco */
+  --fusca-preto: #000000; /* Preto */
+  --fusca-cinza: #9E9E9E; /* Cinza */
+  --fusca-amarelo: #FFFF3B; /* Amarelo Java*/
+  --fusca-laranja: #E67E22; /* Laranja Taxí*/
+  --fusca-roxo: #8E44AD; /* Roxo */
+  --fusca-rosa: #FFC0CB; /* Rosa */
+
+  /* Cores Neutras */
+  --black: #222831;
+  --gray: #DDDDDD;
+  --light-gray: #F5F5F5;
+
+  --text-color-light: #F5F7F8; /* Cor clara para texto */
+  --text-color-dark: #222831; /* Cor escura para texto */
+}
+
+/* Estiliza o corpo da página */
+body {
+  font-family: "Chakra Petch", sans-serif;
+  color: var(--text-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  position: relative; /* Necessário para o posicionamento absoluto do pseudo-elemento */
+  overflow: hidden; /* Para garantir que o pseudo-elemento não cause rolagem */
+  background-color: var(--fusca-bege); /* Cor de fundo padrão, será substituída pelo JS */
+}
+
+body:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.2; /* Ajusta a opacidade da imagem de fundo */
+  z-index: -1;
+}
+
+/* Ajuste as cores do fundo e do texto */
+body.light-text h1 {
+  color: var(--text-color-light);
+}
+  
+body.dark-text h1 {
+  color: var(--text-color-dark);
+}
+  
+/* Estiliza os títulos h1 */
+h1 {
+  font-size: 2.5rem;
+  color: var(--black);
+  text-align: center;
+  letter-spacing: 0.4rem;
+  text-shadow: 0 1px 5px rgba(0, 0, 0, 0.5); /* Sombra com mais desfoque e sem deslocamento */
+}
+
+/* Estiliza as seções da página */
+section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 3rem;
+}
+
+/* Estiliza os inputs dentro das seções */
+section input {
+  width: 30rem;
+  border: none;
+  padding: 1.0rem 1.2rem;
+  color: var(--text-color);
+  font-size: 1rem;
+}
+
+/* Estiliza os botões dentro das seções */
+section button {
+  padding: 1.0rem 1.2rem;
+  border: none;
+  background-color: var(--fusca-azul); /* Cor de fundo padrão dos botões */
+  color: #F5F7F8;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+/* Adiciona efeito hover ao botão de pesquisa */
+section button:hover {
+  background-color: var(--fusca-vermelho); /* Muda a cor de fundo ao passar o mouse */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adiciona uma sombra mais intensa */
+}
+
+/* Estiliza a caixa de resultados da pesquisa */
+.resultados-pesquisa {
+  width: 60rem;
+  height: 46vh;
+  overflow-y: auto;
+  margin-top: 1rem;
+  padding: 1rem;
+  border-radius: 0.6rem;
+}
+
+#resultados-pesquisa {
+  position: relative; /* Define a posição para controlar o pseudo-elemento */
+  overflow: hidden;   /* Garante que o fundo não vaze para fora da seção */
+}
+
+#resultados-pesquisa::before {
+  content: ''; /* Necessário para o pseudo-elemento */
+  position: fixed; /* Fixa o fundo no contêiner */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover; /* Ajusta a imagem para cobrir o fundo */
+  background-position: center; /* Centraliza a imagem */
+  background-repeat: no-repeat; /* Evita repetição da imagem */
+  opacity: 0.2; /* Ajusta a opacidade do fundo */
+  z-index: -1; /* Garante que o fundo fique atrás do conteúdo */
+}
+
+#resultados-pesquisa::before {
+  background-image: var(--background-image); /* Usa a variável para a imagem de fundo */
+}
+
+/* Estiliza cada item de resultado */
+.item-resultado {
+  background: #FFFFFF;
+  border-radius: 0.6rem;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra leve */
+}
+
+/* Estiliza os títulos dentro dos itens de resultado */
+.item-resultado h2 {
+  font-size: 1.5rem;
+  color: var(--black);
+}
+
+/* Estiliza os links dentro dos itens de resultado */
+.item-resultado a {
+  text-decoration: none; /* Remove o sublinhado padrão dos links */
+  color: var(--primary-color); /* Cor dos links */
+}
+
+/* Estiliza os links quando são passados o mouse sobre */
+.item-resultado a:hover {
+  text-decoration: underline; /* Adiciona sublinhado ao passar o mouse */
+}
+
+.item-resultado svg {
+    margin-right: 1rem;
+    color: var(--text-color); /* Inicialmente, a cor do SVG será a cor padrão do texto */
+  }
+  
+  .item-resultado h2 {
+    font-size: 1.5rem;
+    color: var(--black);
+  }
+  
+  .item-resultado .descricao-meta {
+    color: var(--text-color);
+  }
+
+/* Estiliza a descrição meta dentro dos itens de resultado */
+.descricao-meta {
+    color: var(--text-color);
+    margin: 0.5rem 0;
+  }
+
+  /* Estiliza o rodapé da página */
+footer {
+  color: var(--text-color);
+  text-align: center;
+  padding: 0;
+  width: 100%;
+  position: relative; /* Alinha o rodapé ao fundo da página */
+  bottom: 0;
+  font-size: 1rem;
+}
+
+  /* Estiliza o rodapé da página */
+.alerta {
+  background-color: var(--secondary-color);
+  color: var(--text-color);
+  text-align: center;
+  position: relative; /* Alinha o rodapé ao fundo da página */
+  font-size: 3rem;
+  margin-bottom: 15px;
+  padding: 4px 12px;
+  border-left: 6px solid #ffeb3b;  
+}
+
+/* Container de pesquisa */
+.search-container {
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  padding: 0 5px;
+}
+
+.search-container input {
+  flex: 1;
+  padding: 10px;
+  border-radius: 0px;
+  border: none;  
+  outline: none;
+}
+
+.search-container button {
+  background-color: var(--success-color); /* Cor de fundo dos botões de pesquisa */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 0px;
+  cursor: pointer;
+}
+
+/* Botão azul petróleo */
+.btn-azul {
+  background-color: var(--fusca-azul);
+  color: white;
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2rem;
+    letter-spacing: 0.2rem;
+  }
+
+  section input {
+    width: 25rem;
+    padding: 0.8rem;
+  }
+
+  .resultados-pesquisa {
+    width: 40rem;
+    height: 40vh;
+  }
+
+  .item-resultado h2 {
+    font-size: 1.3rem;
+  }
+}
+
+/* Responsividade para celulares */
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.8rem;
+    letter-spacing: 0.1rem;
+  }
+
+  section input {
+    width: 17rem;
+  }
+
+  section button {
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  .resultados-pesquisa {
+    width: 90%;
+    height: 50vh;
+  }
+
+  .item-resultado h2 {
+    font-size: 1.1rem;
+  }
+
+  footer {
+    font-size: 0.9rem;
+  }
+}
